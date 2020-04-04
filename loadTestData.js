@@ -1,4 +1,3 @@
-const cache = require('parse-server/lib/cache').default;
 const Parse = require('./setup');
 
 const productRecord = {
