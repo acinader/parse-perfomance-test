@@ -24,22 +24,21 @@ const productRecord = {
   SellingPrice: 1899,
 };
 
-
-
 // "_p_createdBy": "Employee$nqzq73IJZn",
 // "_p_company": "Company$othercmpny",
 // "_p_brand": "Brand$5KUm1qj624",
 
-const deleteEverything =  async () => {
+const deleteEverything = async () => {
   const toDelete = ['_User', '_Session', 'Company', 'Employee', 'Brand', 'Product'];
-  const schemas =  await Parse.Schema.all();
+  const schemas = await Parse.Schema.all();
   return Promise.all(
     schemas
-      .filter(schema => toDelete.includes(schema.className))
+      .filter((schema) => toDelete.includes(schema.className))
       .map((schemaObj) => {
         const schema = new Parse.Schema(schemaObj.className);
         return schema.purge();
-      }));
+      }),
+  );
 };
 
 const createRecord = (index) => {
@@ -56,12 +55,11 @@ const createRecord = (index) => {
       employee,
       company,
       brand,
-    }
+    },
   };
 
   return new Parse.Object('Product', attributes);
 };
-
 
 const run = async () => {
   await deleteEverything();
@@ -71,7 +69,7 @@ const run = async () => {
   const batch = [];
   const promises = [];
 
-  for(let i = 0; i < recordCount; i++) {
+  for (let i = 0; i < recordCount; i++) {
     batch.push(createRecord(i));
     if (batch.length === batchSize) {
       // save and empty the batch.

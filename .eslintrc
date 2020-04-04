@@ -1,0 +1,22 @@
+{
+  "extends": "airbnb-base",
+  "root": true,
+  "env": {
+    "node": true
+  },
+  "rules": {
+    "strict": 0,
+    "new-cap": [
+      2,
+      {
+        "newIsCapExceptions": ["Parse.Query.or"]
+      }
+    ],
+    "no-console": 0,
+    "no-plusplus": 0,
+    "comma-dangle": ["error", "always-multiline"]
+  },
+  "globals": {
+    "Parse": true
+  }
+}
