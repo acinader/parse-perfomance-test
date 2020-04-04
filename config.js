@@ -3,4 +3,5 @@ module.exports = {
   appId: 'playground',
   masterKey: 'playground',
   directAccess: true,
+  cloud: './cloud/main.js',
 };
